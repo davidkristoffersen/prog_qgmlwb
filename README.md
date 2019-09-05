@@ -14,3 +14,7 @@ To make use of this file you will need follow the following steps:
 * You are now ready to compile or use your keymap with the source
 
 More information can be found in the QMK docs: <https://docs.qmk.fm>
+
+## QMK configurator
+
+The file `layers.json` can be imported into the qmk configurator to edit this layout
