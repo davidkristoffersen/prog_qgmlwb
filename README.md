@@ -1,4 +1,4 @@
-# prog_qgmlwb
+# PROG_QGMLWB
 A qmk firmware layout for the planck keyboard
 
 ## Generated Keymap Layout
@@ -18,3 +18,8 @@ More information can be found in the QMK docs: <https://docs.qmk.fm>
 ## QMK configurator
 
 The file `layers.json` can be imported into the qmk configurator to edit this layout
+
+## Print layout
+
+The folder `print_layouts` contain all layouts designed using pimpmykeyboard's layout editor.
+Each file can be imported into the editor using the `Raw Data` field
