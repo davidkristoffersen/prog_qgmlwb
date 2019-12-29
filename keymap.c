@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-	[0] = LAYOUT_ortho_4x12(KC_TAB, KC_Q, KC_G, KC_M, KC_L, KC_W, KC_B, KC_Y, KC_U, KC_V, KC_BSLS, KC_BSPC, KC_ESC, KC_D, KC_S, KC_T, KC_N, KC_R, KC_I, KC_A, KC_E, KC_O, KC_H, KC_ENT, MO(16), KC_Z, KC_X, KC_C, KC_F, KC_J, KC_K, KC_P, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_LCTL, KC_LALT, KC_LGUI, MO(8), MO(10), KC_SPC, KC_SPC, MO(12), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
+	[0] = LAYOUT_ortho_4x12(KC_TAB, KC_Q, KC_G, KC_M, KC_L, KC_W, KC_B, KC_Y, KC_U, KC_V, KC_BSLS, KC_BSPC, KC_ESC, KC_D, KC_S, KC_T, KC_N, KC_R, KC_I, KC_A, KC_E, KC_O, KC_H, KC_ENT, MO(14), KC_Z, KC_X, KC_C, KC_F, KC_J, KC_K, KC_P, KC_COMM, KC_DOT, KC_SLSH, KC_EQL, KC_LCTL, KC_LALT, KC_LGUI, MO(8), MO(10), KC_SPC, KC_SPC, MO(12), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
 	[1] = LAYOUT_ortho_4x12(KC_TAB, KC_Q, KC_G, KC_M, KC_L, KC_W, KC_B, KC_Y, KC_U, KC_V, KC_QUOT, KC_BSPC, KC_ESC, KC_D, KC_S, KC_T, KC_N, KC_R, KC_I, KC_A, KC_E, KC_O, KC_H, KC_TRNS, MO(13), KC_Z, KC_X, KC_C, KC_F, KC_J, KC_K, KC_P, KC_COMM, KC_DOT, KC_MINS, KC_BSLS, KC_LCTL, KC_LALT, KC_LGUI, MO(8), MO(9), KC_SPC, KC_SPC, MO(11), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
 	[2] = LAYOUT_ortho_4x12(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, KC_ESC, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_TRNS, KC_SCLN, KC_QUOT, KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ENT, KC_RSFT, KC_LCTL, KC_LGUI, MO(8), MO(5), KC_SPC, KC_SPC, MO(6), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
 	[3] = LAYOUT_ortho_4x12(KC_TAB, KC_Q, KC_W, KC_F, KC_P, KC_G, KC_J, KC_L, KC_U, KC_Y, KC_SCLN, KC_BSPC, KC_ESC, KC_A, KC_R, KC_S, KC_T, KC_D, KC_H, KC_N, KC_TRNS, KC_TRNS, KC_O, KC_QUOT, KC_TRNS, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_K, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ENT, KC_RSFT, KC_LCTL, KC_LGUI, MO(8), MO(5), KC_SPC, KC_SPC, MO(6), KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
@@ -14,71 +14,64 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[10] = LAYOUT_ortho_4x12(KC_EXLM, KC_PERC, RALT(KC_8), RALT(KC_7), KC_ASTR, KC_NUBS, LSFT(KC_NUBS), KC_LPRN, RALT(KC_0), RALT(KC_9), KC_CIRC, KC_BSPC, KC_DEL, KC_MUTE, KC_NO, KC_WREF, KC_NO, KC_NO, KC_NO, KC_RPRN, KC_MINS, KC_PIPE, KC_AMPR, RALT(KC_RBRC), KC_NO, KC_SLEP, KC_SLCK, KC_CAPS, KC_NLCK, KC_PSCR, KC_INS, KC_HOME, KC_END, KC_QUOT, KC_SCLN, KC_LBRC, KC_LSFT, KC_TRNS, KC_LALT, KC_TRNS, MO(15), KC_TRNS, KC_TRNS, MO(15), KC_MNXT, KC_BRID, KC_BRIU, KC_MPLY),
 	[11] = LAYOUT_ortho_4x12(KC_QUES, KC_9, KC_7, KC_5, KC_3, KC_1, KC_0, KC_2, KC_4, KC_6, KC_8, KC_BSPC, LCTL(KC_DEL), KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_HASH, KC_AT, KC_CIRC, KC_DLR, KC_GRV, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_PGUP, KC_PGDN, KC_NO, KC_NO, KC_NO, KC_LSFT, KC_TRNS, KC_RALT, KC_TRNS, MO(15), KC_TRNS, KC_TRNS, MO(15), KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY),
 	[12] = LAYOUT_ortho_4x12(KC_UNDS, KC_9, KC_7, KC_5, KC_3, KC_1, KC_0, KC_2, KC_4, KC_6, KC_8, KC_BSPC, LCTL(KC_DEL), KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_HASH, RALT(KC_2), KC_RCBR, RALT(KC_4), KC_PLUS, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_PGUP, KC_PGDN, KC_DQUO, KC_COLN, KC_LCBR, KC_RSFT, KC_TRNS, KC_RALT, KC_TRNS, MO(15), KC_TRNS, KC_TRNS, MO(15), KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY),
-	[13] = LAYOUT_ortho_4x12(LSFT(KC_TAB), LSFT(KC_Q), LSFT(KC_G), LSFT(KC_M), LSFT(KC_L), LSFT(KC_W), LSFT(KC_B), LSFT(KC_Y), LSFT(KC_U), LSFT(KC_V), KC_DQUO, KC_BSPC, KC_ESC, LSFT(KC_D), LSFT(KC_S), LSFT(KC_T), LSFT(KC_N), LSFT(KC_R), LSFT(KC_I), LSFT(KC_A), LSFT(KC_E), LSFT(KC_O), LSFT(KC_H), KC_ENT, KC_NO, LSFT(KC_Z), LSFT(KC_X), LSFT(KC_C), LSFT(KC_F), LSFT(KC_J), LSFT(KC_K), LSFT(KC_P), KC_SCLN, KC_COLN, KC_UNDS, KC_PIPE, KC_LCTL, KC_LALT, KC_RALT, KC_LSFT, KC_NO, KC_SPC, KC_SPC, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
-	[14] = LAYOUT_ortho_4x12(LSFT(KC_TAB), LSFT(KC_Q), LSFT(KC_G), LSFT(KC_M), LSFT(KC_L), LSFT(KC_W), LSFT(KC_B), LSFT(KC_Y), LSFT(KC_U), LSFT(KC_V), KC_AT, KC_BSPC, KC_ESC, LSFT(KC_D), LSFT(KC_S), LSFT(KC_T), LSFT(KC_N), LSFT(KC_R), LSFT(KC_I), LSFT(KC_A), LSFT(KC_E), LSFT(KC_O), LSFT(KC_H), LSFT(KC_ENT), KC_NO, LSFT(KC_Z), LSFT(KC_X), LSFT(KC_C), LSFT(KC_F), LSFT(KC_J), LSFT(KC_K), LSFT(KC_P), LSFT(KC_COMM), LSFT(KC_DOT), KC_QUES, KC_GRV, KC_LCTL, KC_LCTL, KC_RALT, KC_LSFT, KC_NO, KC_SPC, KC_SPC, KC_NO, LSFT(KC_LEFT), LSFT(KC_DOWN), LSFT(KC_UP), LSFT(KC_RGHT)),
-	[15] = LAYOUT_ortho_4x12(KC_TRNS, RESET, DEBUG, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_DEL, KC_TRNS, KC_TRNS, MU_MOD, AU_ON, AU_OFF, AG_NORM, AG_SWAP, DF(4), DF(3), DF(2), DF(1), DF(0), KC_TRNS, MUV_DE, MUV_IN, MU_ON, MU_OFF, MI_ON, MI_OFF, TERM_ON, TERM_OFF, DF(5), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
-	[16] = LAYOUT_ortho_4x12(KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_A, KC_B, KC_C, KC_D, KC_E, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS)
+	[13] = LAYOUT_ortho_4x12(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_COMM, KC_DOT, KC_TRNS, KC_TRNS,
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+	),
+	[14] = LAYOUT_ortho_4x12(
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_BSLS, KC_TRNS,
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_SLSH, KC_EQL,
+		KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+	),
+	[15] = LAYOUT_ortho_4x12(KC_TRNS, RESET, DEBUG, RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD, RGB_VAI, RGB_VAD, KC_DEL, KC_TRNS, KC_TRNS, MU_MOD, AU_ON, AU_OFF, AG_NORM, AG_SWAP, DF(4), DF(3), DF(2), DF(1), DF(0), KC_TRNS, MUV_DE, MUV_IN, MU_ON, MU_OFF, MI_ON, MI_OFF, TERM_ON, TERM_OFF, DF(5), KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS)
 };
 
 /*
 	  Post default keymap.c
 */
 
-// Add macros here
-	// if (record->event.pressed) {
-		// if (layer_state_cmp(default_layer_state, 0) || layer_state_cmp(default_layer_state, 1)) {
-			// if (keycode == MO(13) || keycode == MO(14))
-				// if (
-				// SEND_STRING("NUMPAD");
-			/*
-			if (keycode == RALT(KC_RBRC))
-				SEND_STRING(SS_RALT("]"));
-			else if (keycode == KC_RCBR)
-				SEND_STRING("}");
-			else if (keycode == KC_PLUS)
-				SEND_STRING("+");
-			*/
-		// }
-	// }
-// }
+typedef struct shift_code {
+	int pre;
+	const char* post;
+	int lang;
+} shift_code_t;
 
 int SHIFT_LAYER = 0;
-int SHIFT_CODES_SIZE = 3;
-int SHIFT_CODES[3] = {
-	KC_A,
-	KC_B,
-	KC_C
+int SHIFT_CODES_SIZE = 5;
+shift_code_t SHIFT_CODES[5] = {
+	// NO
+	{.lang = 0, .pre = KC_BSLS, .post = "@"},
+	{.lang = 0, .pre = KC_SLSH, .post = "?"},
+	{.lang = 0, .pre = KC_EQL, .post = "`"},
+	// US
+	{.lang = 1, .pre = KC_COMM, .post = ";"},
+	{.lang = 1, .pre = KC_DOT, .post = ":"}
 };
 
+// Add macros here
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	switch(keycode) {
-		case MO(16): // NO
-			if (record->event.pressed) {
-				register_code(KC_LSFT);
-				SHIFT_LAYER = 1;
-			} else {
+	if (keycode == MO(13) || keycode == MO(14)) {
+		if (record->event.pressed) {
+			register_code(KC_LSFT);
+			SHIFT_LAYER = 1;
+		} else {
+			unregister_code(KC_LSFT);
+			SHIFT_LAYER = 0;
+		}
+	}
+	else if (record->event.pressed && SHIFT_LAYER) {
+		int lang = layer_state_cmp(default_layer_state, 1);
+		for (int i = 0; i < SHIFT_CODES_SIZE; i++) {
+			if (lang == SHIFT_CODES[i].lang && keycode == SHIFT_CODES[i].pre) {
 				unregister_code(KC_LSFT);
-				SHIFT_LAYER = 0;
+				send_string(SHIFT_CODES[i].post);
+				return false;
 			}
-			break;
-		case 13: // US
-			if (record->event.pressed) {
-				SHIFT_LAYER = 1;
-			} else {
-				SHIFT_LAYER = 0;
-			}
-			break;
-		default:
-			if (record->event.pressed && SHIFT_LAYER) {
-				register_code(KC_LSFT);
-				for (int i = 0; i < SHIFT_CODES_SIZE; i++) {
-					if (keycode == SHIFT_CODES[i]) {
-						unregister_code(KC_LSFT);
-						register_code(keycode);
-					}
-				}
-			}
-			// if (record->event.pressed);
+		}
+		register_code(KC_LSFT);
 	}
 
 	return true;
