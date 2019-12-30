@@ -33,44 +33,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	  Post default keymap.c
 */
 
+// Keycode conversion struct
 typedef struct shift_code {
 	int pre;
 	const char* post;
 	int lang;
 } shift_code_t;
 
+// Bool for shift status
 int SHIFT_LAYER = 0;
-int SHIFT_CODES_SIZE = 5;
-shift_code_t SHIFT_CODES[5] = {
+// Array size
+int SHIFT_CODES_SIZE = 4;
+// Keycodes to be changed in shift layout
+shift_code_t SHIFT_CODES[4] = {
 	// NO
 	{.lang = 0, .pre = KC_BSLS, .post = "@"},
-	{.lang = 0, .pre = KC_SLSH, .post = "?"},
 	{.lang = 0, .pre = KC_EQL, .post = "`"},
 	// US
 	{.lang = 1, .pre = KC_COMM, .post = ";"},
 	{.lang = 1, .pre = KC_DOT, .post = ":"}
 };
 
-// Add macros here
+// Macros for when keycode is registered
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+	// Toggle shift status
 	if (keycode == KC_LSFT) {
-		if (record->event.pressed) {
-			register_code(KC_LSFT);
-			SHIFT_LAYER = 1;
-		} else {
-			unregister_code(KC_LSFT);
-			SHIFT_LAYER = 0;
-		}
+		SHIFT_LAYER = record->event.pressed
+			? 1
+			: 0;
 	}
+	// Shifted key is pressed
 	else if (record->event.pressed && SHIFT_LAYER) {
+		// Current active language
 		int lang = layer_state_cmp(default_layer_state, 1);
 		for (int i = 0; i < SHIFT_CODES_SIZE; i++) {
+			// Shifted key is changed
 			if (lang == SHIFT_CODES[i].lang && keycode == SHIFT_CODES[i].pre) {
+				// Shift disabled
 				unregister_code(KC_LSFT);
+				// Raw key string printed
 				send_string(SHIFT_CODES[i].post);
 				return false;
 			}
 		}
+		// Shift enabled
 		register_code(KC_LSFT);
 	}
 
