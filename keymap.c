@@ -131,8 +131,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NORMAL_LOWER] = LAYOUT_ortho_4x12(
 	KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,
 	KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-	KC_TRNS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_HOME, KC_END,  KC_NO,   KC_NO,   KC_NO,
-	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, adjust, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+	_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_HOME, KC_END,  XXXXXXX, XXXXXXX, XXXXXXX,
+	_______, _______, _______, _______, _______, _______, _______, adjust,  KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Raise (Normal)
@@ -149,8 +149,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NORMAL_RAISE] = LAYOUT_ortho_4x12(
 	KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
 	KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-	KC_TRNS, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, KC_NO,   KC_NO,   KC_NO,
-	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, adjust,  KC_TRNS, KC_TRNS, KC_TRNS, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+	_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
+	_______, _______, _______, _______, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Numpad
@@ -165,10 +165,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [NUMPAD] = LAYOUT_ortho_4x12(
-	KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_7,    KC_8,    KC_9,    KC_NO,   KC_BSPC,
-	KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_4,    KC_5,    KC_6,    KC_NO,   KC_ENT,
-	KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_1,    KC_2,    KC_3,    KC_NO,   KC_NO,
-	KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_0,    KC_0,    KC_DOT,  KC_NO,   KC_NO
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7, KC_8, KC_9,   XXXXXXX, KC_BSPC,
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4, KC_5, KC_6,   XXXXXXX, KC_ENT,
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1, KC_2, KC_3,   XXXXXXX, XXXXXXX,
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_0, KC_0, KC_DOT, XXXXXXX, XXXXXXX
 ),
 
 /* Lower - QGMLW
@@ -185,16 +185,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Norwegian */
 [QGMLW_NOK_LOWER] = LAYOUT_ortho_4x12(
 	KC_EXLM, KC_PERC, RALT(KC_8), RALT(KC_7), KC_ASTR, KC_NUBS, LSFT(KC_NUBS), KC_LPRN, RALT(KC_0), RALT(KC_9), KC_CIRC, KC_BSPC,
-	KC_DEL,  KC_MUTE, KC_NO,      KC_WREF,    KC_NO,   KC_NO,   KC_NO,         KC_RPRN, KC_MINS,    KC_PIPE,    KC_AMPR, RALT(KC_RBRC),
+	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       KC_RPRN, KC_MINS,    KC_PIPE,    KC_AMPR, RALT(KC_RBRC),
 	KC_LSFT, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     KC_QUOT,    KC_SCLN, KC_LBRC,
-	KC_LCTL, KC_LALT, KC_NO,      KC_TRNS,    adjust,  KC_TRNS, KC_TRNS,       adjust,  KC_MNXT,    KC_BRID,    KC_BRIU, KC_MPLY
+	KC_LCTL, KC_LALT, XXXXXXX,    _______,    adjust,  _______, _______,       adjust,  KC_MNXT,    KC_BRID,    KC_BRIU, KC_MPLY
 ),
 /* English Same as Nok - without æøå */
 [QGMLW_ENG_LOWER] = LAYOUT_ortho_4x12(
 	KC_EXLM, KC_PERC, KC_LBRC, KC_LCBR, KC_LPRN, KC_LT,   KC_GT,   KC_RPRN, KC_RCBR, KC_RBRC, KC_AMPR, KC_BSPC,
-	KC_DEL,  KC_MUTE, KC_NO,   KC_WREF, KC_NO,   KC_NO,   KC_NO,   KC_EQL,  KC_PLUS, KC_ASTR, KC_SLSH, KC_TILD,
-	KC_LSFT, KC_SLEP, KC_SLCK, KC_CAPS, KC_NLCK, KC_PSCR, KC_INS,  KC_HOME, KC_END,  KC_NO,   KC_NO,   KC_NO,
-	KC_LCTL, KC_LALT, KC_NO,   KC_TRNS, adjust,  KC_TRNS, KC_TRNS, adjust,  KC_MNXT, KC_BRID, KC_BRIU, KC_MPLY
+	KC_DEL,  KC_MUTE, XXXXXXX, KC_WREF, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_PLUS, KC_ASTR, KC_SLSH, KC_TILD,
+	KC_LSFT, KC_SLEP, KC_SLCK, KC_CAPS, KC_NLCK, KC_PSCR, KC_INS,  KC_HOME, KC_END,  XXXXXXX, XXXXXXX, XXXXXXX,
+	KC_LCTL, KC_LALT, XXXXXXX, _______, adjust,  _______, _______, adjust,  KC_MNXT, KC_BRID, KC_BRIU, KC_MPLY
 ),
 
 /* Raise - QGMLW
@@ -213,14 +213,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_UNDS,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       KC_BSPC,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, RALT(KC_2), KC_RCBR, RALT(KC_4), KC_PLUS,
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN,    KC_DQUO, KC_COLN,    KC_LCBR,
-	KC_RCTL,      KC_RALT, KC_NO, KC_TRNS, adjust,  KC_TRNS, KC_TRNS, adjust,  KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
+	KC_RCTL,      KC_RALT, XXXXXXX, _______, adjust,  _______, _______, adjust,  KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
 /* English */
 [QGMLW_ENG_RAISE] = LAYOUT_ortho_4x12(
 	KC_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,    KC_6,    KC_8,    KC_BSPC,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, KC_AT,   KC_CIRC, KC_DLR,  KC_GRV,
-	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, KC_NO,   KC_NO,   KC_NO,
-	KC_RCTL,      KC_RALT, KC_NO,   KC_TRNS, adjust,  KC_TRNS, KC_TRNS, adjust,  KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
+	KC_RCTL,      KC_RALT, XXXXXXX, _______, adjust,  _______, _______, adjust,  KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Adjust, every thing on top row (except backspace) is related to rgb stuff
@@ -235,10 +235,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [ADJUST] = LAYOUT_ortho_4x12(
-	KC_TRNS, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI,    RGB_SAD,     RGB_VAI,    RGB_VAD,       KC_DEL,
-	KC_TRNS, KC_TRNS, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, DF(DVORAK), DF(COLEMAK), DF(QWERTY), DF(QGMLW_ENG), DF(QGMLW_NOK),
-	KC_TRNS, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON,    TERM_OFF,    KC_NO,      KC_TRNS,       KC_TRNS,
-	KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,       KC_TRNS
+	_______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI,    RGB_SAD,     RGB_VAI,    RGB_VAD,       KC_DEL,
+	_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, DF(DVORAK), DF(COLEMAK), DF(QWERTY), DF(QGMLW_ENG), DF(QGMLW_NOK),
+	_______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON,    TERM_OFF,    XXXXXXX,    _______,       _______,
+	_______, _______, _______, _______, _______, _______, _______, _______,    _______,     _______,    _______,       _______
 )
 
 };
