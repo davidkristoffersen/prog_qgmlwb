@@ -271,11 +271,8 @@ shift_code_t SHIFT_CODES[4] = {
 // Macros for when keycode is registered
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	// Toggle shift status
-	if (keycode == KC_LSFT) {
-		SHIFT_LAYER = record->event.pressed
-			? 1
-			: 0;
-	}
+	if (keycode == KC_LSFT)
+		SHIFT_LAYER = record->event.pressed;
 	// Shifted key is pressed
 	else if (record->event.pressed && SHIFT_LAYER) {
 		// Current active language
