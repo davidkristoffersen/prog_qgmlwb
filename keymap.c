@@ -1,7 +1,7 @@
 #include QMK_KEYBOARD_H
 
 enum keyboard_layouts {
-	QGMLW_NOK,
+	QGMLW_NOR,
 	QGMLW_ENG,
 	QWERTY,
 	COLEMAK,
@@ -12,10 +12,10 @@ enum keyboard_layouts {
 
 	NUMPAD,
 
-	QGMLW_NOK_LOWER,
+	QGMLW_NOR_LOWER,
 	QGMLW_ENG_LOWER,
 
-	QGMLW_NOK_RAISE,
+	QGMLW_NOR_RAISE,
 	QGMLW_ENG_RAISE,
 
 	ADJUST
@@ -27,10 +27,10 @@ enum keyboard_layouts {
 
 #define numpad MO(NUMPAD)
 
-#define QNLower MO(QGMLW_NOK_LOWER)
+#define QNLower MO(QGMLW_NOR_LOWER)
 #define QELower MO(QGMLW_ENG_LOWER)
 
-#define QNRaise MO(QGMLW_NOK_RAISE)
+#define QNRaise MO(QGMLW_NOR_RAISE)
 #define QERaise MO(QGMLW_ENG_RAISE)
 
 #define adjust MO(ADJUST)
@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian Layout */
-[QGMLW_NOK] = LAYOUT_ortho_4x12(
+[QGMLW_NOR] = LAYOUT_ortho_4x12(
 	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    KC_BSLS, KC_BSPC,
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J, 	  KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
@@ -183,7 +183,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian */
-[QGMLW_NOK_LOWER] = LAYOUT_ortho_4x12(
+[QGMLW_NOR_LOWER] = LAYOUT_ortho_4x12(
 	KC_EXLM, KC_PERC, RALT(KC_8), RALT(KC_7), KC_ASTR, KC_NUBS, LSFT(KC_NUBS), KC_LPRN, RALT(KC_0), RALT(KC_9), KC_CIRC, KC_BSPC,
 	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       KC_RPRN, KC_MINS,    KC_PIPE,    KC_AMPR, RALT(KC_RBRC),
 	KC_LSFT, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     KC_QUOT,    KC_SCLN, KC_LBRC,
@@ -209,7 +209,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian */
-[QGMLW_NOK_RAISE] = LAYOUT_ortho_4x12(
+[QGMLW_NOR_RAISE] = LAYOUT_ortho_4x12(
 	KC_UNDS,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       KC_BSPC,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, RALT(KC_2), KC_RCBR, RALT(KC_4), KC_PLUS,
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN,    KC_DQUO, KC_COLN,    KC_LCBR,
@@ -236,7 +236,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [ADJUST] = LAYOUT_ortho_4x12(
 	_______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI,    RGB_SAD,     RGB_VAI,    RGB_VAD,       KC_DEL,
-	_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, DF(DVORAK), DF(COLEMAK), DF(QWERTY), DF(QGMLW_ENG), DF(QGMLW_NOK),
+	_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, DF(DVORAK), DF(COLEMAK), DF(QWERTY), DF(QGMLW_ENG), DF(QGMLW_NOR),
 	_______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON,    TERM_OFF,    XXXXXXX,    _______,       _______,
 	_______, _______, _______, _______, _______, _______, _______, _______,    _______,     _______,    _______,       _______
 )
