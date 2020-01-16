@@ -35,6 +35,10 @@ enum keyboard_layouts {
 
 #define adjust MO(ADJUST)
 
+int get_language(void);
+
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Qgmlw
@@ -149,26 +153,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NORMAL_RAISE] = LAYOUT_ortho_4x12(
 	KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
 	KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-	_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
+	_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
 	_______, _______, _______, _______, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Numpad
  * ,-----------------------------------------------------------------------------------.
- * |      |      |      |      |      |      |      |   7  |   8  |   9  |      | Bksp |
+ * |  TAB |      |      |      |      |      |      |   7  |   8  |   9  |   /  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |   4  |   5  |   6  |      | Enter|
+ * |  ESC |      |      |      |      |      |      |   4  |   5  |   6  |   *  | Enter|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |   1  |   2  |   3  |      |      |
+ * |      |      |      |      |      |      |      |   1  |   2  |   3  |   -  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |   0  |   0  |   .  |      |      |
+ * |      |      |      |      |      |             |   0  |   ,  |   .  |   +  |      |
  * `-----------------------------------------------------------------------------------'
  */
 [NUMPAD] = LAYOUT_ortho_4x12(
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, KC_BSPC,
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    XXXXXXX, KC_ENT,
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, XXXXXXX,
-	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_0,    KC_0,    KC_DOT,  XXXXXXX, XXXXXXX
+	KC_TAB,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,       KC_9,    KC_SLSH, KC_BSPC,
+	KC_ESC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4,    KC_5,       KC_6,    KC_ASTR, KC_ENT,
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,       KC_3,    KC_MINS, XXXXXXX,
+	XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_0,    KC_COMM,    KC_DOT,  KC_PLUS, XXXXXXX
 ),
 
 /* Lower - QGMLW
@@ -203,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  Del |  F1  |  F2  |  F3  |   F4 |   F5 |  F6  |   #  |   @  |   ^  |   $  |   `  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | PqUp | gqDn |   Æ  |   Ø  |  Å   |
+ * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | PgUp | PgDn |   Æ  |   Ø  |  Å   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |RCtrl |  RAlt|      |      |      |             |Adjust| Next | VolDn| VolUp| Play |
  * `-----------------------------------------------------------------------------------'
@@ -212,7 +216,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [QGMLW_NO_RAISE] = LAYOUT_ortho_4x12(
 	KC_UNDS,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       KC_BSPC,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, RALT(KC_2), KC_RCBR, RALT(KC_4), KC_PLUS,
-	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN,    KC_DQUO, KC_COLN,    KC_LCBR,
+	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    KC_DQUO, KC_COLN,    KC_LCBR,
 	KC_RCTL,      KC_RALT, XXXXXXX, _______, adjust,  _______, _______, adjust,  KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
 /* English */
@@ -257,16 +261,34 @@ typedef struct shift_code {
 // Bool for shift status
 int SHIFT_LAYER = 0;
 // Array size
-int SHIFT_CODES_SIZE = 4;
 // Keycodes to be changed in shift layout
-shift_code_t SHIFT_CODES[4] = {
+shift_code_t SHIFT_CODES[] = {
 	// NO
 	{.lang = QGMLW_NO, .pre = KC_BSLS, .post = "@"},
 	{.lang = QGMLW_NO, .pre = KC_EQL, .post = "`"},
 	// US
 	{.lang = QGMLW_US, .pre = KC_COMM, .post = ";"},
-	{.lang = QGMLW_US, .pre = KC_DOT, .post = ":"}
+	{.lang = QGMLW_US, .pre = KC_DOT, .post = ":"},
 };
+	
+int SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
+
+
+
+
+inline int get_language()
+{
+	if(layer_state_cmp(default_layer_state, QGMLW_NO))
+	{
+		return QGMLW_NO;
+	}
+	if(layer_state_cmp(default_layer_state, QGMLW_US))
+	{
+		return QGMLW_US;
+	}
+
+	return -1;
+}
 
 // Macros for when keycode is registered
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -276,11 +298,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	// Shifted key is pressed
 	else if (record->event.pressed && SHIFT_LAYER) {
 		// Current active language
-		int lang = layer_state_cmp(default_layer_state, QGMLW_NO)
-			? QGMLW_NO
-			: layer_state_cmp(default_layer_state, QGMLW_US)
-				? QGMLW_US
-				: -1;
+		int lang = get_language();
+
 		if (lang == -1)
 			return true;
 
@@ -298,6 +317,32 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 		// Shift enabled
 		register_code(KC_LSFT);
 	}
+
+	
+	else if(IS_LAYER_ON(NUMPAD) && 
+			record->event.pressed && 
+			layer_state_cmp(default_layer_state, QGMLW_NO))
+	{
+		switch(keycode)
+		{
+			case KC_SLSH:
+				send_string("&");
+				return false;
+
+			case KC_ASTR:
+				send_string("|");
+				return false;
+
+			case KC_MINS: 
+				send_string("/");
+				return false;
+
+			case KC_PLUS:
+				send_string("-");
+				return false;
+		}
+	}
+	
 
 	// Print keycode
 	return true;
