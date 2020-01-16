@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Del  |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |   -  |   =  |   [  |   ]  |  \   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # |ISO / |Pg Up |Pg Dn |      |
+ * |      |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |ISO # |ISO / |Pg Dn |Pg Up |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------'
@@ -153,8 +153,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [NORMAL_RAISE] = LAYOUT_ortho_4x12(
 	KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
 	KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
-	_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
-	_______, _______, _______, _______, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+	_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_HASH, KC_BSLS, KC_PGDN, KC_PGUP, XXXXXXX,
+	_______, _______, _______, _______, adjust,  _______, _______, _______UpKC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Numpad
@@ -207,7 +207,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  Del |  F1  |  F2  |  F3  |   F4 |   F5 |  F6  |   #  |   @  |   ^  |   $  |   `  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | PgUp | PgDn |   Æ  |   Ø  |  Å   |
+ * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | Pg Dn| Pg Up|   Æ  |   Ø  |  Å   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |RCtrl |  RAlt|      |      |      |             |Adjust| Next | VolDn| VolUp| Play |
  * `-----------------------------------------------------------------------------------'
