@@ -15,9 +15,9 @@
 //
 
 #undef NO_SQUOT
-#define NO_SQUOT KC_AT
+#define NO_SQUOT KC_AT // "
 #undef NO_SBSLS
-#define NO_SBSLS KC_GRAVE
+#define NO_SBSLS KC_GRAVE // |
 
 // Layouts
 enum keyboard_layouts {
