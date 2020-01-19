@@ -1,4 +1,5 @@
 #include QMK_KEYBOARD_H
+#include "keymap_extras/keymap_norwegian.h"
 
 enum keyboard_layouts {
 	QGMLW_NO,
@@ -213,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |  Del |  F1  |  F2  |  F3  |   F4 |   F5 |  F6  |   #  |   @  |   ^  |   $  |   `  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | Pg Dn| Pg Up|   Æ  |   Ø  |  Å   |
+ * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | Pg Dn| Pg Up| XXXX | XXXX | XXXX |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |RCtrl | RAlt |      |      |      |      |      |Adjust| Next | VolDn| VolUp| Play |
  * `-----------------------------------------------------------------------------------'
@@ -222,7 +223,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [QGMLW_NO_RAISE] = LAYOUT_ortho_4x12(
 	KC_UNDS,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, RALT(KC_2), KC_RCBR, RALT(KC_4), KC_PLUS,
-	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    KC_DQUO, KC_COLN,    KC_LCBR,
+	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    XXXXXXX, XXXXXXX,    XXXXXXX,
 	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
 /* English */
@@ -260,7 +261,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // Keycode conversion struct
 typedef struct shift_code {
 	int pre;
-	const char* post;
+	int post;
 	int lang;
 } shift_code_t;
 
@@ -270,11 +271,11 @@ int SHIFT_LAYER = 0;
 // Keycodes to be changed in shift layout
 shift_code_t SHIFT_CODES[] = {
 	// NO
-	{.lang = QGMLW_NO, .pre = KC_BSLS, .post = "@"},
-	{.lang = QGMLW_NO, .pre = KC_EQL, .post = "`"},
+	{.lang = QGMLW_NO, .pre = KC_BSLS, .post = KC_AT},
+	{.lang = QGMLW_NO, .pre = KC_EQL, .post = KC_GRAVE},
 	// US
-	{.lang = QGMLW_US, .pre = KC_COMM, .post = ";"},
-	{.lang = QGMLW_US, .pre = KC_DOT, .post = ":"},
+	{.lang = QGMLW_US, .pre = KC_COMM, .post = KC_SCLN},
+	{.lang = QGMLW_US, .pre = KC_DOT, .post = KC_COLN},
 };
 
 int SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
@@ -309,7 +310,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				// Shift disabled
 				unregister_code(KC_LSFT);
 				// Raw key string printed
-				send_string(SHIFT_CODES[i].post);
+				tap_code16(SHIFT_CODES[i].post);
 				// Discard keycode
 				return false;
 			}
@@ -323,19 +324,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			layer_state_cmp(default_layer_state, QGMLW_NO)) {
 		switch(keycode) {
 			case KC_SLSH:
-				tap_code16(KC_AMPR);
+				tap_code16(NO_SLSH);
 				break;
 
 			case KC_ASTR:
-				tap_code16(KC_PIPE);
+				tap_code16(NO_ASTR);
 				break;
 
 			case KC_MINS:
-				tap_code16(KC_SLSH);
+				tap_code16(NO_MINS);
 				break;
 
 			case KC_PLUS:
-				tap_code16(KC_MINS);
+				tap_code16(NO_PLUS);
 				break;
 
 			default:
