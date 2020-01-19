@@ -35,8 +35,15 @@ enum keyboard_layouts {
 
 #define adjust MO(ADJUST)
 
-int get_language(void);
+// Fix for hardware swapped LGUI and LALT
+#ifdef true
+	const uint16_t TMP_LGUI = KC_LALT;
+	const uint16_t TMP_LALT = KC_LGUI;
+	#define KC_LGUI TMP_LGUI
+	#define KC_LALT TMP_LALT
+#endif
 
+int get_language(void);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -48,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shft |   Z  |   X  |   C  |   F  |   J  |   K  |   P  |  ,;  |  .:  |  -_  |   \| |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | GUI  | NmPd | Lower| Space|Space |Raise | Left | Down | Up   | Right|
+ * | Ctrl | Alt  | NmPd | GUI  | Lower| Space|Space |Raise | Left | Down | Up   | Right|
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian Layout */
@@ -56,14 +63,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    KC_BSLS, KC_BSPC,
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J, 	  KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
-	KC_LCTL, KC_LALT, KC_LGUI, numpad,  QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 /* English Layout */
 [QGMLW_US] = LAYOUT_ortho_4x12(
 	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    KC_QUOT, KC_BSPC,
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J,    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_MINS, KC_BSLS,
-	KC_LCTL, KC_LALT, KC_LGUI, numpad,  QELower, KC_SPC,  KC_SPC,  QERaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QELower, KC_SPC,  KC_SPC,  QERaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty
@@ -74,14 +81,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shft |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |  ,<  |  .>  |  /?  | Shft |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | GUI  | NmPd | Lower| Space|Space |Raise | Left | Down | Up   | Right|
+ * | Ctrl | Alt  | NmPd | GUI  | Lower| Space|Space |Raise | Left | Down | Up   | Right|
  * `-----------------------------------------------------------------------------------'
  */
 [QWERTY] = LAYOUT_ortho_4x12(
 	KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
 	KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSHIFT,
-	KC_LCTL, KC_LALT, KC_LGUI, numpad,  lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
 ),
 
 /* Colemak
@@ -92,14 +99,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shft |   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |  "   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | GUI  | NmPd | Lower| Space|Space |Raise | Left | Down | Up   | Right|
+ * | Ctrl | Alt  | NmPd | GUI  | Lower| Space|Space |Raise | Left | Down | Up   | Right|
  * `-----------------------------------------------------------------------------------'
  */
 [COLEMAK] = LAYOUT_ortho_4x12(
 	KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
 	KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_QUOT ,
-	KC_LCTL, KC_LALT, KC_LGUI, numpad,  lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
 ),
 
 /* Dvorak
@@ -110,14 +117,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shft |   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |  \   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | GUI  | NmPd | Lower| Space|Space |Raise | Left | Down | Up   | Right|
+ * | Ctrl | Alt  | NmPd | GUI  | Lower| Space|Space |Raise | Left | Down | Up   | Right|
  * `-----------------------------------------------------------------------------------'
  */
 [DVORAK] = LAYOUT_ortho_4x12(
 	KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
 	KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT,
 	KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_SLSH,
-	KC_LCTL, KC_LALT, KC_LGUI, numpad,  lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
 ),
 
 /* Lower (Normal)
@@ -312,28 +319,42 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	}
 
 	else if(IS_LAYER_ON(NUMPAD) &&
+			// false &&
 			record->event.pressed &&
 			layer_state_cmp(default_layer_state, QGMLW_NO)) {
+		// unregister_code16(keycode);
+		// clear_keyboard();
+		// if (record->event.pressed) {
 		switch(keycode) {
 			case KC_SLSH:
 				send_string("&");
+				// unregister_code16(keycode);
+				// register_code16(KC_AMPR);
 				break;
 
 			case KC_ASTR:
 				send_string("|");
+				// unregister_code16(keycode);
+				// register_code16(KC_PIPE);
 				break;
 
 			case KC_MINS:
 				send_string("/");
+				// unregister_code16(keycode);
+				// register_code16(KC_SLSH);
 				break;
 
 			case KC_PLUS:
 				send_string("-");
+				// unregister_code16(keycode);
+				// register_code16(KC_MINS);
 				break;
 
 			default:
+				// register_code16(keycode);
 				return true;
 		}
+		// }
 		return false;
 	}
 
