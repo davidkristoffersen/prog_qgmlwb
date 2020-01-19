@@ -10,6 +10,15 @@
 #undef NO_TILD
 #define NO_TILD RALT(KC_RBRC) // ~
 
+//
+// Shift layout defines
+//
+
+#undef NO_SQUOT
+#define NO_SQUOT KC_AT
+#undef NO_SBSLS
+#define NO_SBSLS KC_GRAVE
+
 // Layouts
 enum keyboard_layouts {
 	QGMLW_NO,
@@ -281,8 +290,8 @@ int SHIFT_LAYER = 0;
 // Keycodes to be changed in shift layout
 shift_code_t SHIFT_CODES[] = {
 	// NO
-	{.lang = QGMLW_NO, .pre = NO_QUOT, .post = KC_AT},
-	{.lang = QGMLW_NO, .pre = NO_BSLS, .post = KC_GRAVE},
+	{.lang = QGMLW_NO, .pre = NO_QUOT, .post = NO_SQUOT},
+	{.lang = QGMLW_NO, .pre = NO_BSLS, .post = NO_SBSLS},
 	// US
 	{.lang = QGMLW_US, .pre = KC_COMM, .post = KC_SCLN},
 	{.lang = QGMLW_US, .pre = KC_DOT, .post = KC_COLN},
