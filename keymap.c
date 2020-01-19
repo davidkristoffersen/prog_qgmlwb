@@ -1,6 +1,16 @@
 #include QMK_KEYBOARD_H
 #include "keymap_extras/keymap_norwegian.h"
 
+//
+// Pull request to norwegian layout
+//
+
+#undef NO_QUOT
+#define NO_QUOT KC_BSLS // '
+#undef NO_TILD
+#define NO_TILD RALT(KC_RBRC) // ~
+
+// Layouts
 enum keyboard_layouts {
 	QGMLW_NO,
 	QGMLW_US,
@@ -43,10 +53,6 @@ enum keyboard_layouts {
 	#define KC_LGUI TMP_LGUI
 	#define KC_LALT TMP_LALT
 #endif
-
-// Pull request to norwegian layout
-#undef NO_QUOT
-#define NO_QUOT KC_BSLS // '
 
 int get_language(void);
 
@@ -199,9 +205,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 /* Norwegian */
 [QGMLW_NO_LOWER] = LAYOUT_ortho_4x12(
-	KC_EXLM, KC_PERC, RALT(KC_8), RALT(KC_7), KC_ASTR, KC_NUBS, LSFT(KC_NUBS), KC_LPRN, RALT(KC_0), RALT(KC_9), KC_CIRC, _______,
-	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       KC_RPRN, KC_MINS,    KC_PIPE,    KC_AMPR, RALT(KC_RBRC),
-	_______, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     KC_QUOT,    KC_SCLN, KC_LBRC,
+	KC_EXLM, KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
+	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       NO_EQL,  NO_PLUS,    NO_ASTR,    NO_SLSH, NO_TILD,
+	_______, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     NO_AE,      NO_OSLH, NO_AA,
 	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MNXT,    KC_BRID,    KC_BRIU, KC_MPLY
 ),
 /* English Same as Nok - without æøå */
@@ -225,8 +231,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 /* Norwegian */
 [QGMLW_NO_RAISE] = LAYOUT_ortho_4x12(
-	KC_UNDS,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
-	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, RALT(KC_2), KC_RCBR, RALT(KC_4), KC_PLUS,
+	NO_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
+	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, NO_AT,      NO_CIRC, NO_DLR,     NO_GRV,
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    XXXXXXX, XXXXXXX,    XXXXXXX,
 	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
