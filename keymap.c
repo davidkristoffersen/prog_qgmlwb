@@ -37,7 +37,7 @@ enum keyboard_layouts {
 #define adjust MO(ADJUST)
 
 // Fix for hardware swapped LGUI and LALT
-#ifdef true
+#ifdef false
 	const uint16_t TMP_LGUI = KC_LALT;
 	const uint16_t TMP_LALT = KC_LGUI;
 	#define KC_LGUI TMP_LGUI
