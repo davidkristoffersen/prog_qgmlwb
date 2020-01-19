@@ -43,8 +43,6 @@ enum keyboard_layouts {
 	#define KC_LALT TMP_LALT
 #endif
 
-#define ENABLE_NUMPAD true
-
 int get_language(void);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -321,34 +319,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	}
 
 	else if(IS_LAYER_ON(NUMPAD) &&
-			ENABLE_NUMPAD &&
 			record->event.pressed &&
 			layer_state_cmp(default_layer_state, QGMLW_NO)) {
-		// unregister_code16(keycode);
-		// clear_keyboard();
 		switch(keycode) {
 			case KC_SLSH:
-				send_string("&");
-				// register_code16(KC_AMPR);
+				tap_code16(KC_AMPR);
 				break;
 
 			case KC_ASTR:
-				send_string("|");
-				// register_code16(KC_PIPE);
+				tap_code16(KC_PIPE);
 				break;
 
 			case KC_MINS:
-				send_string("/");
-				// register_code16(KC_SLSH);
+				tap_code16(KC_SLSH);
 				break;
 
 			case KC_PLUS:
-				send_string("-");
-				// register_code16(KC_MINS);
+				tap_code16(KC_MINS);
 				break;
 
 			default:
-				// register_code16(keycode);
 				return true;
 		}
 		return false;
