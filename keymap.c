@@ -191,14 +191,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      | XXXX | XXXX | XXXX | XXXX | XXXX | XXXX |   1  |   2  |   3  |   -  | XXXX |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      | XXXX | XXXX |      |      |   0  |   ,  |   .  |   +  | XXXX |
+ * |      |      |      |      | XXXX |      |      |   0  |   ,  |   .  |   +  | XXXX |
  * `-----------------------------------------------------------------------------------'
  */
 [NUMPAD] = LAYOUT_ortho_4x12(
 	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,       KC_9,    KC_SLSH, _______,
 	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4,    KC_5,       KC_6,    KC_ASTR, _______,
 	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,       KC_3,    KC_MINS, XXXXXXX,
-	_______, _______, _______, XXXXXXX, XXXXXXX, _______, _______, KC_0,    KC_COMM,    KC_DOT,  KC_PLUS, XXXXXXX
+	_______, _______, _______, _______, XXXXXXX, _______, _______, KC_0,    KC_COMM,    KC_DOT,  KC_PLUS, XXXXXXX
 ),
 
 /* Lower - QGMLW
