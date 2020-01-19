@@ -44,6 +44,10 @@ enum keyboard_layouts {
 	#define KC_LALT TMP_LALT
 #endif
 
+// Pull request to norwegian layout
+#undef NO_QUOT
+#define NO_QUOT KC_BSLS // '
+
 int get_language(void);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -61,9 +65,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 /* Norwegian Layout */
 [QGMLW_NO] = LAYOUT_ortho_4x12(
-	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    KC_BSLS, KC_BSPC,
+	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    NO_QUOT, KC_BSPC, // BSLS
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
-	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J, 	  KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH, KC_EQL,
+	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J, 	  KC_K,    KC_P,    KC_COMM, KC_DOT,  NO_MINS, NO_BSLS, // EQL
 	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 /* English Layout */
@@ -271,8 +275,8 @@ int SHIFT_LAYER = 0;
 // Keycodes to be changed in shift layout
 shift_code_t SHIFT_CODES[] = {
 	// NO
-	{.lang = QGMLW_NO, .pre = KC_BSLS, .post = KC_AT},
-	{.lang = QGMLW_NO, .pre = KC_EQL, .post = KC_GRAVE},
+	{.lang = QGMLW_NO, .pre = NO_QUOT, .post = KC_AT},
+	{.lang = QGMLW_NO, .pre = NO_BSLS, .post = KC_GRAVE},
 	// US
 	{.lang = QGMLW_US, .pre = KC_COMM, .post = KC_SCLN},
 	{.lang = QGMLW_US, .pre = KC_DOT, .post = KC_COLN},
