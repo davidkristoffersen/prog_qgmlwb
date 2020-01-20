@@ -58,10 +58,10 @@ enum keyboard_layouts {
 
 // Fix for hardware swapped LGUI and LALT
 #if SWAP_GUI_ALT==true
-	const uint16_t TMP_LGUI = KC_LALT;
-	const uint16_t TMP_LALT = KC_LGUI;
-	#define KC_LGUI KC_LALT
-	#define KC_LALT TMP_LALT
+	const uint16_t TMP_LGUI = KC_LGUI;
+	const uint16_t TMP_LALT = KC_LALT;
+	#define KC_LGUI TMP_LALT
+	#define KC_LALT TMP_LGUI
 #endif
 
 int get_language(void);
@@ -85,14 +85,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    NO_QUOT, KC_BSPC, // BSLS
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J, 	  KC_K,    KC_P,    KC_COMM, KC_DOT,  NO_MINS, NO_BSLS, // EQL
-	KC_LCTL, KC_LGUI, numpad,  KC_LALT, QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 /* English Layout */
 [QGMLW_US] = LAYOUT_ortho_4x12(
 	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    KC_QUOT, KC_BSPC,
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J,    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_MINS, KC_BSLS,
-	KC_LCTL, KC_LGUI, numpad,  KC_LALT, QELower, KC_SPC,  KC_SPC,  QERaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QELower, KC_SPC,  KC_SPC,  QERaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Qwerty
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
 	KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSHIFT,
-	KC_LCTL, KC_LGUI, numpad,  KC_LALT, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
 ),
 
 /* Colemak
@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC,
 	KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_QUOT ,
-	KC_LCTL, KC_LGUI, numpad,  KC_LALT, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
 ),
 
 /* Dvorak
@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
 	KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_ENT,
 	KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_SLSH,
-	KC_LCTL, KC_LGUI, numpad,  KC_LALT, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, lower,   KC_SPC,  KC_SPC,  raise,   KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT
 ),
 
 /* Lower (Normal)
@@ -245,14 +245,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	NO_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, NO_AT,      NO_CIRC, NO_DLR,     NO_GRV,
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    XXXXXXX, XXXXXXX,    XXXXXXX,
-	KC_RCTL,      _______, _______, KC_RALT, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
+	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
 /* English */
 [QGMLW_US_RAISE] = LAYOUT_ortho_4x12(
 	KC_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,    KC_6,    KC_8,    _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, KC_AT,   KC_CIRC, KC_DLR,  KC_GRV,
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX,
-	KC_RCTL,      _______, _______, KC_RALT, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Adjust, every thing on top row (except backspace) is related to rgb stuff
@@ -323,7 +323,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			if (lang == SHIFT_CODES[i].lang && keycode == SHIFT_CODES[i].pre) {
 				// Shift disabled
 				unregister_code(KC_LSFT);
-				//
+				 
 				// Tap the desired key
 				tap_code16(SHIFT_CODES[i].post);
 				// Discard keycode
