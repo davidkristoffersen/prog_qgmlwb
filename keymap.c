@@ -1,5 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "keymap_extras/keymap_norwegian.h"
+#include "config.h"
 
 //
 // Pull request to norwegian layout
@@ -56,14 +57,15 @@ enum keyboard_layouts {
 #define adjust MO(ADJUST)
 
 // Fix for hardware swapped LGUI and LALT
-#ifdef false
-	const uint16_t TMP_LGUI = KC_LALT;
-	const uint16_t TMP_LALT = KC_LGUI;
-	#define KC_LGUI TMP_LGUI
-	#define KC_LALT TMP_LALT
+#if SWAP_GUI_ALT==true
+	const uint16_t TMP_LGUI = KC_LGUI;
+	const uint16_t TMP_LALT = KC_LALT;
+	#define KC_LGUI TMP_LALT
+	#define KC_LALT TMP_LGUI
 #endif
 
 int get_language(void);
+int handle_numpad_input(uint16_t keycode);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -279,8 +281,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 // Keycode conversion struct
 typedef struct shift_code {
-	int pre;
-	int post;
+	uint16_t pre;
+	uint16_t post;
 	int lang;
 } shift_code_t;
 
@@ -294,32 +296,25 @@ shift_code_t SHIFT_CODES[] = {
 	{.lang = QGMLW_NO, .pre = NO_BSLS, .post = NO_SBSLS},
 	// US
 	{.lang = QGMLW_US, .pre = KC_COMM, .post = KC_SCLN},
-	{.lang = QGMLW_US, .pre = KC_DOT, .post = KC_COLN},
+	{.lang = QGMLW_US, .pre = KC_DOT,  .post = KC_COLN},
 };
 
 int SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
 
-inline int get_language() {
-	if(layer_state_cmp(default_layer_state, QGMLW_NO)) {
-		return QGMLW_NO;
-	}
-	if(layer_state_cmp(default_layer_state, QGMLW_US)) {
-		return QGMLW_US;
-	}
-
-	return -1;
-}
 
 // Macros for when keycode is registered
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	// Toggle shift status
-	if (keycode == KC_LSFT)
+	if (keycode == KC_LSFT) {
 		SHIFT_LAYER = record->event.pressed;
+	}
+	
 	// Shifted key is pressed
 	else if (record->event.pressed && SHIFT_LAYER) {
 		// Current active language
 		int lang = get_language();
 
+		// No action was needed
 		if (lang == -1)
 			return true;
 
@@ -328,7 +323,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			if (lang == SHIFT_CODES[i].lang && keycode == SHIFT_CODES[i].pre) {
 				// Shift disabled
 				unregister_code(KC_LSFT);
-				// Raw key string printed
+				 
+				// Tap the desired key
 				tap_code16(SHIFT_CODES[i].post);
 				// Discard keycode
 				return false;
@@ -341,6 +337,27 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	else if(IS_LAYER_ON(NUMPAD) &&
 			record->event.pressed &&
 			layer_state_cmp(default_layer_state, QGMLW_NO)) {
+
+		return handle_numpad_input(keycode);
+	}
+
+	// Print keycode
+	return true;
+}
+
+inline int get_language() {
+	if(layer_state_cmp(default_layer_state, QGMLW_NO)) {
+		return QGMLW_NO;
+	}
+	if(layer_state_cmp(default_layer_state, QGMLW_US)) {
+		return QGMLW_US;
+	}
+
+	// No relevant action is needed
+	return -1;
+}
+
+inline int handle_numpad_input(uint16_t keycode) {
 		switch(keycode) {
 			case KC_SLSH:
 				tap_code16(NO_SLSH);
@@ -362,8 +379,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				return true;
 		}
 		return false;
-	}
-
-	// Print keycode
-	return true;
 }
