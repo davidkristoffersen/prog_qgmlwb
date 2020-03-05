@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "keymap_extras/keymap_norwegian.h"
 #include "config.h"
+#include "left_space.h"
 
 //
 // Pull request to norwegian layout
@@ -85,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB,  KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_B,    KC_Y,    KC_U,    KC_V,    NO_QUOT, KC_BSPC, // BSLS
 	KC_ESC,  KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_ENT,
 	KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_F,    KC_J, 	  KC_K,    KC_P,    KC_COMM, KC_DOT,  NO_MINS, NO_BSLS, // EQL
-	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+	KC_LCTL, KC_LALT, numpad,  KC_LGUI, QNLower, KC_SPC,  KC_SPC,  QNRaise, KC_LEFT, KC_DOWN, KC_UP,   SPACE_TRI
 ),
 /* English Layout */
 [QGMLW_US] = LAYOUT_ortho_4x12(
@@ -197,10 +198,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [NUMPAD] = LAYOUT_ortho_4x12(
-	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,       KC_9,    KC_SLSH, _______,
-	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4,    KC_5,       KC_6,    KC_ASTR, _______,
-	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,       KC_3,    KC_MINS, XXXXXXX,
-	_______, _______, _______, _______, XXXXXXX, _______, _______, KC_0,    KC_COMM,    KC_DOT,  KC_PLUS, XXXXXXX
+	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_7,    KC_8,       KC_9,    KC_KP_SLASH, _______,
+	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_4,    KC_5,       KC_6,    KC_KP_ASTERISK, _______,
+	_______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_1,    KC_2,       KC_3,    KC_KP_MINUS, XXXXXXX,
+	_______, _______, _______, _______, XXXXXXX, _______, _______, KC_0,    KC_COMM,    KC_DOT,  KC_KP_PLUS, XXXXXXX
 ),
 
 /* Lower - QGMLW
@@ -286,11 +287,9 @@ typedef struct shift_code {
 	int lang;
 } shift_code_t;
 
-// Bool for shift status
-int SHIFT_LAYER = 0;
 // Array size
 // Keycodes to be changed in shift layout
-shift_code_t SHIFT_CODES[] = {
+const shift_code_t SHIFT_CODES[] = {
 	// NO
 	{.lang = QGMLW_NO, .pre = NO_QUOT, .post = NO_SQUOT},
 	{.lang = QGMLW_NO, .pre = NO_BSLS, .post = NO_SBSLS},
@@ -299,18 +298,11 @@ shift_code_t SHIFT_CODES[] = {
 	{.lang = QGMLW_US, .pre = KC_DOT,  .post = KC_COLN},
 };
 
-int SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
+const uint16_t SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
 
 
-// Macros for when keycode is registered
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	// Toggle shift status
-	if (keycode == KC_LSFT) {
-		SHIFT_LAYER = record->event.pressed;
-	}
-	
-	// Shifted key is pressed
-	else if (record->event.pressed && SHIFT_LAYER) {
+bool handle_keyboard(uint16_t keycode, keyrecord_t *record) {
+	if (keyboard_report->mods & MOD_BIT(KC_LSFT)) {
 		// Current active language
 		int lang = get_language();
 
@@ -326,22 +318,26 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 				 
 				// Tap the desired key
 				tap_code16(SHIFT_CODES[i].post);
-				// Discard keycode
+				register_code(KC_LSFT);
+
 				return false;
 			}
 		}
-		// Shift enabled
-		register_code(KC_LSFT);
+	}
+    return true;
+}
+
+
+// Macros for when keycode is registered
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+	if (record->event.pressed) {
+	    handle_left_space(keycode, record);
+	    if(!handle_keyboard(keycode, record)) {
+            return false;
+        }
+        
 	}
 
-	else if(IS_LAYER_ON(NUMPAD) &&
-			record->event.pressed &&
-			layer_state_cmp(default_layer_state, QGMLW_NO)) {
-
-		return handle_numpad_input(keycode);
-	}
-
-	// Print keycode
 	return true;
 }
 
@@ -355,28 +351,4 @@ inline int get_language() {
 
 	// No relevant action is needed
 	return -1;
-}
-
-inline int handle_numpad_input(uint16_t keycode) {
-		switch(keycode) {
-			case KC_SLSH:
-				tap_code16(NO_SLSH);
-				break;
-
-			case KC_ASTR:
-				tap_code16(NO_ASTR);
-				break;
-
-			case KC_MINS:
-				tap_code16(NO_MINS);
-				break;
-
-			case KC_PLUS:
-				tap_code16(NO_PLUS);
-				break;
-
-			default:
-				return true;
-		}
-		return false;
 }
