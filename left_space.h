@@ -26,6 +26,9 @@ void _handle_left_space(uint16_t keycode, keyrecord_t *record) {
 #if ENABLE_SCHEME==true
     #define SPACE_TRI LT(7, KEY)
     #define handle_left_space(k, r) _handle_left_space(k, r)
+#elif ENABLE_SCHEME==false
+    #define SPACE_TRI KC_RIGHT
+    #define handle_left_space(k, r) 
 #else
     #define SPACE_TRI KC_SPC
     #define handle_left_space(k, r) 
