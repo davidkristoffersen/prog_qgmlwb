@@ -2,6 +2,6 @@
 #define CONFIG
 
 #define SWAP_GUI_ALT false
-#define ENABLE_SCHEME true
+#define ENABLE_SCHEME false
 
 #endif

@@ -301,8 +301,8 @@ const shift_code_t SHIFT_CODES[] = {
 const uint16_t SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
 
 
-bool handle_keyboard(uint16_t keycode, keyrecord_t *record) {
-	if (keyboard_report->mods & MOD_BIT(KC_LSFT)) {
+bool handle_special_characters(uint16_t keycode, keyrecord_t *record) {
+	if (get_mods() & MOD_MASK_SHIFT) {
 		// Current active language
 		int lang = get_language();
 
@@ -332,12 +332,10 @@ bool handle_keyboard(uint16_t keycode, keyrecord_t *record) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	if (record->event.pressed) {
 	    handle_left_space(keycode, record);
-	    if(!handle_keyboard(keycode, record)) {
+	    if(!handle_special_characters(keycode, record)) {
             return false;
         }
-        
 	}
-
 	return true;
 }
 
