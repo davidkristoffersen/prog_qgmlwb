@@ -298,22 +298,18 @@ const shift_code_t SHIFT_CODES[] = {
 	{.lang = QGMLW_US, .pre = KC_DOT,  .post = KC_COLN},
 };
 
-// Double tap characters in NO layout
-const uint16_t DOUBLETAP_CODES[] = {NO_TILD, NO_CIRC, NO_GRV};
-
 const uint16_t SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
-const uint16_t DOUBLETAP_CODES_SIZE = sizeof(DOUBLETAP_CODES) / sizeof(DOUBLETAP_CODES[0]);
 
 bool handle_special_characters(uint16_t keycode, keyrecord_t *record) {
-	// Current active language
-	int lang = get_language();
-
-	// No action was needed
-	if (lang == -1)
-		return true;
-
 	// Fix special shift keys
 	if (get_mods() & MOD_MASK_SHIFT) {
+		// Current active language
+		int lang = get_language();
+
+		// No action was needed
+		if (lang == -1)
+			return true;
+
 		for (int i = 0; i < SHIFT_CODES_SIZE; i++) {
 			// Shifted key is changed
 			if (lang == SHIFT_CODES[i].lang && keycode == SHIFT_CODES[i].pre) {
@@ -325,17 +321,6 @@ bool handle_special_characters(uint16_t keycode, keyrecord_t *record) {
 				register_code(KC_LSFT);
 
 				return false;
-			}
-		}
-	}
-	// Fix double tapped keys in NO layout
-	else if (lang == QGMLW_NO) {
-		for (int i = 0; i < DOUBLETAP_CODES_SIZE; i++) {
-			if (keycode == DOUBLETAP_CODES[i]) {
-				tap_code16(keycode);
-
-				// Tap none keycode to simulate double tap
-				tap_code16(XXXXXXX);
 			}
 		}
 	}
