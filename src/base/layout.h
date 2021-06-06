@@ -4,26 +4,25 @@
 
 // Layouts enum
 enum keyboard_layouts {
-	QGMLW_NO,
-	QGMLW_US,
-	QWERTY,
-	COLEMAK,
-	DVORAK,
+    QGMLW_NO,
+    QGMLW_US,
+    QWERTY,
+    COLEMAK,
+    DVORAK,
 
-	NORMAL_LOWER,
-	NORMAL_RAISE,
+    NORMAL_LOWER,
+    NORMAL_RAISE,
 
-	NUMPAD,
+    NUMPAD,
 
-	QGMLW_NO_LOWER,
-	QGMLW_US_LOWER,
+    QGMLW_NO_LOWER,
+    QGMLW_US_LOWER,
 
-	QGMLW_NO_RAISE,
-	QGMLW_US_RAISE,
+    QGMLW_NO_RAISE,
+    QGMLW_US_RAISE,
 
-	ADJUST
+    ADJUST
 };
-
 
 // Layouts keycodes
 #define lower MO(NORMAL_LOWER)
