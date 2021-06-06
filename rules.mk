@@ -1,1 +1,1 @@
-SRC += lib/base/functions.c lib/macros/static.c lib/macros/dynamic.c
+SRC += src/base.c src/base/functions.c src/macros/static.c src/macros/dynamic.c
