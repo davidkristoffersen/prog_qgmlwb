@@ -14,6 +14,4 @@ inline int get_language() {
 
 void tap_dead_key(uint16_t keycode) {
     tap_code16(keycode);
-    tap_code16(keycode);
-    tap_code16(KC_BSPC);
 }
