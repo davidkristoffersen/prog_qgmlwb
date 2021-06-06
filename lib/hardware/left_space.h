@@ -1,6 +1,4 @@
-#include QMK_KEYBOARD_H
-#include "config.h"
-
+#include "../base.h"
 
 #if ENABLE_SCHEME==true
 

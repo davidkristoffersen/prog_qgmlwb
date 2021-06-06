@@ -1,72 +1,4 @@
-#include QMK_KEYBOARD_H
-#include "keymap_extras/keymap_norwegian.h"
-#include "config.h"
-#include "left_space.h"
-
-//
-// Pull request to norwegian layout
-//
-
-#undef NO_QUOT
-#define NO_QUOT KC_BSLS // '
-#undef NO_TILD
-#define NO_TILD RALT(KC_RBRC) // ~
-
-//
-// Shift layout defines
-//
-
-#undef NO_SQUOT
-#define NO_SQUOT KC_AT // "
-#undef NO_SBSLS
-#define NO_SBSLS KC_GRAVE // |
-
-// Layouts
-enum keyboard_layouts {
-	QGMLW_NO,
-	QGMLW_US,
-	QWERTY,
-	COLEMAK,
-	DVORAK,
-
-	NORMAL_LOWER,
-	NORMAL_RAISE,
-
-	NUMPAD,
-
-	QGMLW_NO_LOWER,
-	QGMLW_US_LOWER,
-
-	QGMLW_NO_RAISE,
-	QGMLW_US_RAISE,
-
-	ADJUST
-};
-
-
-#define lower MO(NORMAL_LOWER)
-#define raise MO(NORMAL_RAISE)
-
-#define numpad MO(NUMPAD)
-
-#define QNLower MO(QGMLW_NO_LOWER)
-#define QELower MO(QGMLW_US_LOWER)
-
-#define QNRaise MO(QGMLW_NO_RAISE)
-#define QERaise MO(QGMLW_US_RAISE)
-
-#define adjust MO(ADJUST)
-
-// Fix for hardware swapped LGUI and LALT
-#if SWAP_GUI_ALT==true
-	const uint16_t TMP_LGUI = KC_LGUI;
-	const uint16_t TMP_LALT = KC_LALT;
-	#define KC_LGUI TMP_LALT
-	#define KC_LALT TMP_LGUI
-#endif
-
-int get_language(void);
-int handle_numpad_input(uint16_t keycode);
+#include "keymap.h"
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -217,8 +149,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 /* Norwegian */
 [QGMLW_NO_LOWER] = LAYOUT_ortho_4x12(
-	KC_EXLM, KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
-	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       NO_EQL,  NO_PLUS,    NO_ASTR,    NO_SLSH, NO_TILD,
+	M(KC_EXLM_M), KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
+	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       NO_EQL,  NO_PLUS,    NO_ASTR,    NO_SLSH, M(NO_TILD_M),
 	_______, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     NO_AE,      NO_OSLH, NO_AA,
 	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MNXT,    KC_BRID,    KC_BRIU, KC_MPLY
 ),
@@ -244,7 +176,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Norwegian */
 [QGMLW_NO_RAISE] = LAYOUT_ortho_4x12(
 	NO_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
-	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, NO_AT,      NO_CIRC, NO_DLR,     NO_GRV,
+	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, NO_AT,      M(NO_CIRC_M), NO_DLR,     M(NO_GRV_M),
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    XXXXXXX, XXXXXXX,    XXXXXXX,
 	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
@@ -275,78 +207,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 
 };
-
-/*
-	Macros
-*/
-
-// Keycode conversion struct
-typedef struct shift_code {
-	uint16_t pre;
-	uint16_t post;
-	int lang;
-} shift_code_t;
-
-// Array size
-// Keycodes to be changed in shift layout
-const shift_code_t SHIFT_CODES[] = {
-	// NO
-	{.lang = QGMLW_NO, .pre = NO_QUOT, .post = NO_SQUOT},
-	{.lang = QGMLW_NO, .pre = NO_BSLS, .post = NO_SBSLS},
-	// US
-	{.lang = QGMLW_US, .pre = KC_COMM, .post = KC_SCLN},
-	{.lang = QGMLW_US, .pre = KC_DOT,  .post = KC_COLN},
-};
-
-const uint16_t SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
-
-bool handle_special_characters(uint16_t keycode, keyrecord_t *record) {
-	// Fix special shift keys
-	if (get_mods() & MOD_MASK_SHIFT) {
-		// Current active language
-		int lang = get_language();
-
-		// No action was needed
-		if (lang == -1)
-			return true;
-
-		for (int i = 0; i < SHIFT_CODES_SIZE; i++) {
-			// Shifted key is changed
-			if (lang == SHIFT_CODES[i].lang && keycode == SHIFT_CODES[i].pre) {
-				// Shift disabled
-				unregister_code(KC_LSFT);
-
-				// Tap the desired key
-				tap_code16(SHIFT_CODES[i].post);
-				register_code(KC_LSFT);
-
-				return false;
-			}
-		}
-	}
-    return true;
-}
-
-
-// Macros for when keycode is registered
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	if (record->event.pressed) {
-	    handle_left_space(keycode, record);
-	    if (!handle_special_characters(keycode, record)) {
-            return false;
-        }
-	}
-	return true;
-}
-
-inline int get_language() {
-	if(layer_state_cmp(default_layer_state, QGMLW_NO)) {
-		return QGMLW_NO;
-	}
-	if(layer_state_cmp(default_layer_state, QGMLW_US)) {
-		return QGMLW_US;
-	}
-
-	// No relevant action is needed
-	return -1;
-}

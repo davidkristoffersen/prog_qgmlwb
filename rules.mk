@@ -1,0 +1,1 @@
+SRC += lib/base/functions.c lib/macros/static.c lib/macros/dynamic.c
