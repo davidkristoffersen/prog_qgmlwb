@@ -3,19 +3,13 @@
 #include "keymap_extras/keymap_norwegian.h"
 #include "../base.h"
 
-//
-// Pull request to norwegian layout
-//
-
+// Norwegian layout fix
 #undef NO_QUOT
 #define NO_QUOT KC_BSLS // '
 #undef NO_TILD
 #define NO_TILD RALT(KC_RBRC) // ~
 
-//
-// Shift layout defines
-//
-
+// Shift layout fix
 #undef NO_SQUOT
 #define NO_SQUOT KC_AT // "
 #undef NO_SBSLS

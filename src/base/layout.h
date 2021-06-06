@@ -2,7 +2,7 @@
 
 #include "../base.h"
 
-// Layouts
+// Layouts enum
 enum keyboard_layouts {
 	QGMLW_NO,
 	QGMLW_US,
@@ -25,6 +25,7 @@ enum keyboard_layouts {
 };
 
 
+// Layouts keycodes
 #define lower MO(NORMAL_LOWER)
 #define raise MO(NORMAL_RAISE)
 

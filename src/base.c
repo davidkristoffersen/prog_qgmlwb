@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 /* Norwegian */
 [QGMLW_NO_LOWER] = LAYOUT_ortho_4x12(
-	M(KC_EXLM_M), KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
+	KC_EXLM, KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
 	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       NO_EQL,  NO_PLUS,    NO_ASTR,    NO_SLSH, M(NO_TILD_M),
 	_______, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     NO_AE,      NO_OSLH, NO_AA,
 	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MNXT,    KC_BRID,    KC_BRIU, KC_MPLY

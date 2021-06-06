@@ -1,13 +1,13 @@
 #include "dynamic.h"
 
-// Keycode conversion struct
+// Shift codes conversion struct
 typedef struct shift_code {
 	uint16_t pre;
 	uint16_t post;
 	int lang;
 } shift_code_t;
 
-// Keycodes to be changed in shift layout
+// Array of shift codes to convert
 const shift_code_t SHIFT_CODES[] = {
 	// NO
 	{.lang = QGMLW_NO, .pre = NO_QUOT, .post = NO_SQUOT},
@@ -17,7 +17,7 @@ const shift_code_t SHIFT_CODES[] = {
 	{.lang = QGMLW_US, .pre = KC_DOT,  .post = KC_COLN},
 };
 
-// Array size
+// Shift codes array size
 const uint16_t SHIFT_CODES_SIZE = sizeof(SHIFT_CODES) / sizeof(SHIFT_CODES[0]);
 
 bool handle_special_characters(uint16_t keycode, keyrecord_t *record) {
@@ -47,7 +47,7 @@ bool handle_special_characters(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
-// Macros for when keycode is registered
+// Prepend key records with macros
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	if (record->event.pressed) {
 	    handle_left_space(keycode, record);
