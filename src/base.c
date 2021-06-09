@@ -7,11 +7,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   G  |   M  |   L  |   W  |   B  |   Y  |   U  |   V  |   '" | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   D  |   S  |   T  |   N  |   R  |   I  |   A  |   E  |   O  |  H   | Enter|
+ * | Esc  |   D  |   S  |   T  |   N  |   R  |   I  |   A  |   E  |   O  |  H   |Return|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shft |   Z  |   X  |   C  |   F  |   J  |   K  |   P  |  ,;  |  .:  |  -_  |   \| |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | NmPd | GUI  | Lower| Space|Space |Raise | Left | Down | Up   | Right|
+ * | Ctrl | Alt  | NmPd | GUI  | Lower| Space|Space |Raise | Left | Down |  Up  | Right|
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian Layout */
@@ -33,7 +33,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |  ;:  | Enter|
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |  ;:  |Return|
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shft |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |  ,<  |  .>  |  /?  | Shft |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -51,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   Q  |   W  |   F  |   P  |   G  |   J  |   L  |   U  |   Y  |   ;  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  | Enter|
+ * | Esc  |   A  |   R  |   S  |   T  |   D  |   H  |   N  |   E  |   I  |   O  |Return|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shft |   Z  |   X  |   C  |   V  |   B  |   K  |   M  |   ,  |   .  |   /  |  "   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -69,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * | Tab  |   "  |   ,  |   .  |   P  |   Y  |   F  |   G  |   C  |   R  |   L  | Bksp |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Esc  |   A  |   O  |   E  |   U  |   I  |   D  |   H  |   T  |   N  |   S  | Enter|
+ * | Esc  |   A  |   O  |   E  |   U  |   I  |   D  |   H  |   T  |   N  |   S  |Return|
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * | Shft |   ;  |   Q  |   J  |   K  |   X  |   B  |   M  |   W  |   V  |   Z  |  \   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -141,11 +141,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   !  |   %  |   [  |   {  |   (  |   <  |   >  |   )  |   }  |   ]  |   &  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  Del | Mute | XXXX |BrwRef| XXXX | XXXX | XXXX |   =  |   +  |   *  |   /  |   ~  |
+ * |  Del | Mute | XXXX | Refr | XXXX | XXXX | XXXX |   =  |   +  |   *  |   /  |  ~   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |Sleep |ScrLck| caps |NumLck|PrtScr|  Ins | Home | End  |   æ  |   ø  |  å   |
+ * |      |Sleep |ScrLck| Caps |NumLck|PrtScr|  Ins | Home | End  |   æ  |   ø  |  å   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |Adjust| Next | BriD | BriU | Play |
+ * |      |      |      |      |      |      |      |Adjust| Prev | BriD | BriU | Stop |
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian */
@@ -153,23 +153,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_EXLM, KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
 	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       NO_EQL,  NO_PLUS,    NO_ASTR,    NO_SLSH, M(NO_TILD_M),
 	_______, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     NO_AE,      NO_OSLH, NO_AA,
-	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MNXT,    KC_BRID,    KC_BRIU, KC_MPLY
+	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MPRV,    KC_BRID,    KC_BRIU, KC_MSTP
 ),
 /* English Same as Nok - without æøå */
 [QGMLW_US_LOWER] = LAYOUT_ortho_4x12(
 	KC_EXLM, KC_PERC, KC_LBRC, KC_LCBR, KC_LPRN, KC_LT,   KC_GT,   KC_RPRN, KC_RCBR, KC_RBRC, KC_AMPR, _______,
 	KC_DEL,  KC_MUTE, XXXXXXX, KC_WREF, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_PLUS, KC_ASTR, KC_SLSH, KC_TILD,
 	_______, KC_SLEP, KC_SLCK, KC_CAPS, KC_NLCK, KC_PSCR, KC_INS,  KC_HOME, KC_END,  XXXXXXX, XXXXXXX, XXXXXXX,
-	_______, _______, _______, _______, _______, _______, _______, adjust,  KC_MNXT, KC_BRID, KC_BRIU, KC_MPLY
+	_______, _______, _______, _______, _______, _______, _______, adjust,  KC_MPRV, KC_BRID, KC_BRIU, KC_MSTP
 ),
 
 /* Raise - QGMLW
  * ,-----------------------------------------------------------------------------------.
  * |   ?  |   9  |   7  |   5  |   3  |   1  |   0  |  2   |   4  |   6  |   8  |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |  Del |  F1  |  F2  |  F3  |   F4 |   F5 |  F6  |   #  |   @  |   ^  |   $  |   `  |
+ * | Del+ |  F1  |  F2  |  F3  |   F4 |   F5 |  F6  |   #  |   @  |   ^  |   $  |   `  |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | Pg Dn| Pg Up| XXXX | XXXX | XXXX |
+ * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | PgUp | PgDn | XXXX | XXXX | XXXX |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |RCtrl | RAlt |      |      |      |      |      |Adjust| Next | VolDn| VolUp| Play |
  * `-----------------------------------------------------------------------------------'
@@ -178,14 +178,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [QGMLW_NO_RAISE] = LAYOUT_ortho_4x12(
 	NO_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, NO_AT,      M(NO_CIRC_M), NO_DLR,     M(NO_GRV_M),
-	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP,    XXXXXXX, XXXXXXX,    XXXXXXX,
+	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN,    XXXXXXX, XXXXXXX,    XXXXXXX,
 	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
 ),
 /* English */
 [QGMLW_US_RAISE] = LAYOUT_ortho_4x12(
 	KC_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,    KC_6,    KC_8,    _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, KC_AT,   KC_CIRC, KC_DLR,  KC_GRV,
-	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGDN, KC_PGUP, XXXXXXX, XXXXXXX, XXXXXXX,
+	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
 	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
