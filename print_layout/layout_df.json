@@ -1,120 +1,28 @@
 [
-  [
-    {
-      "c": "#009dc9",
-      "a": 7
-    },
-    "Tab",
-    {
-      "c": "#cccccc",
-      "f": 6
-    },
-    "Q",
-    "G",
-    "M",
-    "L",
-    "W",
-    "B",
-    "Y",
-    "U",
-    "V",
-    {
-      "a": 4,
-      "fa": [
-        5
-      ]
-    },
-    "\"\n\n\n\n\n\n\n\n\n'",
-    {
-      "c": "#009dc9",
-      "a": 7,
-      "f": 3
-    },
-    "Back Space"
-  ],
-  [
-    "Esc",
-    {
-      "c": "#cccccc",
-      "f": 6
-    },
-    "D",
-    "S",
-    "T",
-    "N",
-    "R",
-    "I",
-    "A",
-    "E",
-    "O",
-    "H",
-    {
-      "c": "#009dc9",
-      "f": 3
-    },
-    "Return"
-  ],
-  [
-    {
-      "c": "#3c3c3c",
-      "t": "#ffffff"
-    },
-    "Prog Shift",
-    {
-      "c": "#cccccc",
-      "t": "#000000",
-      "f": 6
-    },
-    "Z",
-    "X",
-    "C",
-    "F",
-    "J",
-    "K",
-    "P",
-    {
-      "a": 4,
-      "fa": [
-        5
-      ]
-    },
-    ";\n\n\n\n\n\n\n\n\n,",
-    ":\n\n\n\n\n\n\n\n\n.",
-    "_\n\n\n\n\n\n\n\n\n-",
-    "|\n\n\n\n\n\n\n\n\n\\"
-  ],
-  [
-    {
-      "c": "#3c3c3c",
-      "t": "#ffffff",
-      "a": 7,
-      "f": 3
-    },
-    "Ctrl",
-    "Alt",
-    "AltGr",
-    "OS",
-    {
-      "c": "#ff6500",
-      "t": "#000000"
-    },
-    "Lower",
-    {
-      "c": "#cccccc",
-      "w": 2
-    },
-    "",
-    {
-      "c": "#ff6500"
-    },
-    "Raise",
-    {
-      "c": "#009dc9",
-      "f": 6
-    },
-    "&larr;",
-    "&darr;",
-    "&uarr;",
-    "&rarr;"
-  ]
+	{t:"#000000\n#009dc9\n#ff6500"},
+		"\n!\n?\n\n\n\n\n\n\nTab", "\nL\nR\n\n\n\n\n\n\nQ", "\nL\nR\n\n\n\n\n\n\nG", "\nL\nR\n\n\n\n\n\n\nM", "\nL\nR\n\n\n\n\n\n\nL", "\nL\nR\n\n\n\n\n\n\nW", "\nL\nR\n\n\n\n\n\n\nB", "\nL\nR\n\n\n\n\n\n\nY", "\nL\nR\n\n\n\n\n\n\nU", "\nL\nR\n\n\n\n\n\n\nV", "\nL\nR\n\n\n\n\n\n\n'",
+	{t:"#000000",a:7},
+		"Back Space"
+],
+[
+	{t:"#000000\n#009dc9\n#ff6500", a:4},
+		"\nL\nR\n\n\n\n\n\n\nEsc", "\nL\nR\n\n\n\n\n\n\nD", "\nL\nR\n\n\n\n\n\n\nS", "\nL\nR\n\n\n\n\n\n\nT", "\nL\nR\n\n\n\n\n\n\nN", "\nL\nR\n\n\n\n\n\n\nR", "\nL\nR\n\n\n\n\n\n\nI", "\nL\nR\n\n\n\n\n\n\nA", "\nL\nR\n\n\n\n\n\n\nE", "\nL\nR\n\n\n\n\n\n\nO", "\nL\nR\n\n\n\n\n\n\nH", "\nL\nR\n\n\n\n\n\n\nReturn"
+],
+[
+	{c:"#3c3c3c",t:"#ffffff\n#009dc9\n#ff6500"},
+		"\nShift\nShift\n\n\n\n\n\n\nShift+", 
+	{c:"#cccccc",t:"#000000\n#009dc9\n#ff6500"},
+		"\nL\nR\n\n\n\n\n\n\nZ", "\nL\nR\n\n\n\n\n\n\nX", "\nL\nR\n\n\n\n\n\n\nC", "\nL\nR\n\n\n\n\n\n\nF", "\nL\nR\n\n\n\n\n\n\nJ", "\nL\nR\n\n\n\n\n\n\nK", "\nL\nR\n\n\n\n\n\n\nP", "\nL\nR\n\n\n\n\n\n\n,", "\nL\nR\n\n\n\n\n\n\n.", "\nL\nR\n\n\n\n\n\n\n-", "\nL\nR\n\n\n\n\n\n\n\\"
+],
+[
+	{c:"#3c3c3c",t:"#ffffff",a:7},
+		"Ctrl","Alt","AltGr","OS",
+	{c:"#009dc9",t:"#000000"},
+		"Lower",
+	{c:"#cccccc",w:2},
+		"",
+	{c:"#ff6500"},
+		"Raise",
+	{c:"#cccccc",t:"#000000\n#009dc9\n#ff6500", a:4},
+		"\nL\nR\n\n\n\n\n\n\n&larr;","\nL\nR\n\n\n\n\n\n\n&darr;","\nL\nR\n\n\n\n\n\n\n&uarr;","\nL\nR\n\n\n\n\n\n\n&rarr;"
 ]
