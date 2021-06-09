@@ -17,18 +17,21 @@
 ],
 [
 	{c:"#3c3c3c",t:"#ffffff\n#009dc9\n#ff6500"},
-		"\nShift\nShift\n\n\n\n\n\n\nShift+", 
+		"\nShift\nRShift\n\n\n\n\n\n\nShift+", 
 	{c:"#cccccc",t:"#000000\n#009dc9\n#ff6500"},
 		"\nSleep\nF7\n\n\n\n\n\n\nZ", "\nScrollL\nF8\n\n\n\n\n\n\nX", "\nCapsL\nF9\n\n\n\n\n\n\nC", "\nNumL\nF10\n\n\n\n\n\n\nF", "\nPrtScr\nF11\n\n\n\n\n\n\nJ", "\nInsert\nF12\n\n\n\n\n\n\nK", "\nHome\nPgUp\n\n\n\n\n\n\nP", ";\nEnd\nPgDn\n\n\n\n\n\n\n,", ":\nÆ\n\n\n\n\n\n\n\n.", "_\nØ\n\n\n\n\n\n\n\n-", "|\nÅ\n\n\n\n\n\n\n\n\\"
 ],
 [
-	{c:"#3c3c3c",t:"#ffffff",a:7},
-		"Ctrl", "Alt", "AltGr", "OS",
+	{c:"#3c3c3c",t:"#ffffff\n#009dc9\n#ff6500"},
+		"\n\nRCtrl\n\n\n\n\n\n\nCtrl", 
+		"\n\nRAlt\n\n\n\n\n\n\nAlt", 
+	{t:"#ffffff",a:7},
+		"Num Pad", "GUI",
 	{c:"#009dc9",t:"#000000"},
 		"Lower",
-	{c:"#cccccc",w:2},
-		"",
-	{c:"#ff6500"},
+	{c:"#cccccc",t:"#000000\n#009dc9\n#ff6500",a:4,w:2},
+		"\nSpace\nSpace\n\n\n\n\n\n\nSpace", 
+	{c:"#ff6500",a:7},
 		"Raise",
 	{c:"#007c00",t:"#000000\n#009dc9\n#ff6500", a:4},
         "\nPrev\nNext\n\n\n\n\n\n\n&larr;", "\nBright-\nVol-\n\n\n\n\n\n\n&darr;", "\nBright+\nVol+\n\n\n\n\n\n\n&uarr;", "\nStop\nPlay\n\n\n\n\n\n\n&rarr;"
