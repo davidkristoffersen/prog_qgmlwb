@@ -31,6 +31,6 @@
 	{c:"#ff6500"},
 		"Raise",
 	{c:"#007c00",t:"#000000\n#009dc9\n#ff6500", a:4},
-        "\nPrev\nNext\n\n\n\n\n\n\n&larr;", "\nBright-\nVol-\n\n\n\n\n\n\n&darr;", "\nBright+\nVol+\n\n\n\n\n\n\n&uarr;", "\nPause\nPlay\n\n\n\n\n\n\n&rarr;"
+        "\nPrev\nNext\n\n\n\n\n\n\n&larr;", "\nBright-\nVol-\n\n\n\n\n\n\n&darr;", "\nBright+\nVol+\n\n\n\n\n\n\n&uarr;", "\nStop\nPlay\n\n\n\n\n\n\n&rarr;"
 ]
 ]
