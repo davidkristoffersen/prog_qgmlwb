@@ -23,6 +23,3 @@ The file `layers.json` can be imported into the qmk configurator to edit this la
 
 The folder `print_layouts` contain all layouts designed using pimpmykeyboard's layout editor.
 Each file can be imported into the editor using the `Raw Data` field
-
-## Optimization on low storage
-Add the code from `optimize_fix.mk` to `qmk_firmware/keyboards/planck/rev5/rules.mk`
