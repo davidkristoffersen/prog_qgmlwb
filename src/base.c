@@ -145,7 +145,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |      |Sleep |ScrLck| Caps |NumLck|PrtScr|  Ins | Home | End  |   æ  |   ø  |  å   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |Adjust| Prev | BriD | BriU | Stop |
+ * |      |      |      |      |      |      |      |Adjust| Stop | BriD | BriU | Play |
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian */
@@ -153,14 +153,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_EXLM, KC_PERC, NO_LBRC,    NO_LCBR,    NO_LPRN, NO_LESS, NO_GRTR,       NO_RPRN, NO_RCBR,    NO_RBRC,    NO_AMPR, _______,
 	KC_DEL,  KC_MUTE, XXXXXXX,    KC_WREF,    XXXXXXX, XXXXXXX, XXXXXXX,       NO_EQL,  NO_PLUS,    NO_ASTR,    NO_SLSH, M(NO_TILD_M),
 	_______, KC_SLEP, KC_SLCK,    KC_CAPS,    KC_NLCK, KC_PSCR, KC_INS,        KC_HOME, KC_END,     NO_AE,      NO_OSLH, NO_AA,
-	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MPRV,    KC_BRID,    KC_BRIU, KC_MSTP
+	_______, _______, _______,    _______,    _______, _______, _______,       adjust,  KC_MSTP,    KC_BRID,    KC_BRIU, KC_MPLY
 ),
 /* English Same as Nok - without æøå */
 [QGMLW_US_LOWER] = LAYOUT_ortho_4x12(
 	KC_EXLM, KC_PERC, KC_LBRC, KC_LCBR, KC_LPRN, KC_LT,   KC_GT,   KC_RPRN, KC_RCBR, KC_RBRC, KC_AMPR, _______,
 	KC_DEL,  KC_MUTE, XXXXXXX, KC_WREF, XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_PLUS, KC_ASTR, KC_SLSH, KC_TILD,
 	_______, KC_SLEP, KC_SLCK, KC_CAPS, KC_NLCK, KC_PSCR, KC_INS,  KC_HOME, KC_END,  XXXXXXX, XXXXXXX, XXXXXXX,
-	_______, _______, _______, _______, _______, _______, _______, adjust,  KC_MPRV, KC_BRID, KC_BRIU, KC_MSTP
+	_______, _______, _______, _______, _______, _______, _______, adjust,  KC_MSTP, KC_BRID, KC_BRIU, KC_MPLY
 ),
 
 /* Raise - QGMLW
@@ -171,7 +171,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------+------+------+------+------+------+------|
  * |RShift|  F7  |  F8  | F9   |  F10 |  F11 |  F12 | PgUp | PgDn | XXXX | XXXX | XXXX |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |RCtrl | RAlt |      |      |      |      |      |Adjust| Next | VolDn| VolUp| Play |
+ * |RCtrl | RAlt |      |      |      |      |      |Adjust| Prev | VolDn| VolUp| Next |
  * `-----------------------------------------------------------------------------------'
  */
 /* Norwegian */
@@ -179,14 +179,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	NO_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,       KC_6,    KC_8,       _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, NO_AT,      M(NO_CIRC_M), NO_DLR,     M(NO_GRV_M),
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN,    XXXXXXX, XXXXXXX,    XXXXXXX,
-	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT,    KC_VOLD, KC_VOLU,    KC_MPLY
+	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MPRV,    KC_VOLD, KC_VOLU,    KC_MNXT
 ),
 /* English */
 [QGMLW_US_RAISE] = LAYOUT_ortho_4x12(
 	KC_QUES,      KC_9,    KC_7,    KC_5,    KC_3,    KC_1,    KC_0,    KC_2,    KC_4,    KC_6,    KC_8,    _______,
 	LCTL(KC_DEL), KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_HASH, KC_AT,   KC_CIRC, KC_DLR,  KC_GRV,
 	KC_RSFT,      KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PGUP, KC_PGDN, XXXXXXX, XXXXXXX, XXXXXXX,
-	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+	KC_RCTL,      KC_RALT, _______, _______, adjust,  _______, _______, _______, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT
 ),
 
 /* Adjust, every thing on top row (except backspace) is related to rgb stuff
